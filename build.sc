@@ -1,6 +1,7 @@
 import mill._
 import mill.api.Loose
 import mill.define.{Command, Sources, Target}
+import mill.modules.Jvm
 import mill.scalajslib._
 import mill.scalalib._
 import mill.scalalib.publish._
@@ -21,6 +22,8 @@ object D {
     val core = ivy"io.udash::udash-core::${V.udash.core}"
     val css = ivy"io.udash::udash-css::${V.udash.core}"
   }
+
+  val ammonite = ivy"com.lihaoyi:::ammonite::2.1.4-12-f697522"
 }
 
 
@@ -87,6 +90,24 @@ def publishM2Local(p: os.Path): Command[Unit] = T.command{
   jvm(V.scala212).publishM2Local(p.toString)()
   js(V.scala212).publishM2Local(p.toString)()
   ()
+}
+
+object example extends Common {
+  override def crossScalaVersion: String = V.scala212
+
+  override def sources = T.sources(millSourcePath / 'example / 'src)
+
+  override def moduleDeps = Seq(jvm(crossScalaVersion))
+
+  override def ivyDeps: Target[Loose.Agg[Dep]] = commonDeps ++ Agg(D.ammonite)
+
+  def run: Target[PathRef] = T{
+    val d = T.ctx().dest
+    Jvm.runLocal(mainClass = "example.Runner",
+      runClasspath().map(_.path),
+      Seq(d.toString))
+    PathRef(d)
+  }
 }
 
 // vim: et ts=2 sw=2 syn=scala
