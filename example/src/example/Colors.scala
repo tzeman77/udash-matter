@@ -14,17 +14,17 @@ object Colors extends AbstractPage {
     |}""".stripMargin))
 
   def tpl = Seq(
-    button(Matter.colors.primary, "Primary color"),
-    button(Matter.colors.secondary, "Secondary color"),
-    button(Matter.colors.error, "Error color"),
-    button(Matter.colors.warning, "Warning color"),
-    button(Matter.colors.success, "Success color"),
+    button(Matter.color.primary, "Primary color"),
+    button(Matter.color.secondary, "Secondary color"),
+    button(Matter.color.error, "Error color"),
+    button(Matter.color.warning, "Warning color"),
+    button(Matter.color.success, "Success color"),
     br,
-    p(Matter.colors.text.primary, "Primary color"),
-    p(Matter.colors.text.secondary, "Secondary color"),
-    p(Matter.colors.text.error, "Error color"),
-    p(Matter.colors.text.warning, "Warning color"),
-    p(Matter.colors.text.success, "Success color")
+    p(Matter.color.text.primary, "Primary color"),
+    p(Matter.color.text.secondary, "Secondary color"),
+    p(Matter.color.text.error, "Error color"),
+    p(Matter.color.text.warning, "Warning color"),
+    p(Matter.color.text.success, "Success color")
   )
 
 }

@@ -1,5 +1,7 @@
 package example
 
+import io.udash.css.CssText._
+import matter.Matter
 import scalatags.Text.all._
 import scalatags.Text.{all, tags2}
 
@@ -25,7 +27,9 @@ abstract class AbstractPage {
 
     ),
     body(margin:="5em",
-      p(a(href:=Index.fileName, "Back to index")),
+      if (this != Index)
+        p(a(Matter.link, href:=Index.fileName, "Back to index"))
+      else span(),
       h1(pageTitle), tpl)
   )
 }

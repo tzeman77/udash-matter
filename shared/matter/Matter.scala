@@ -11,7 +11,7 @@ trait Matter {
     val unElevated: CssStyleName = CssStyleName("matter-button-unelevated")
   }
 
-  object colors {
+  object color {
 
     val primary: CssStyleName = CssStyleName("matter-primary")
     val secondary: CssStyleName = CssStyleName("matter-secondary")
@@ -33,6 +33,8 @@ trait Matter {
     val radio: CssStyleName = CssStyleName("matter-radio")
     val switch: CssStyleName = CssStyleName("matter-switch")
   }
+
+  val link: CssStyleName = CssStyleName("matter-link")
 }
 
 object Matter extends Matter with Typography
