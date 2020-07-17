@@ -39,6 +39,10 @@ trait Matter {
   object progress extends Progress
 
   object textfield extends TextField
+
+  val tooltip: CssStyleName = CssStyleName("matter-tooltip")
+  val tooltipTop: CssStyleName = CssStyleName("matter-tooltip-top")
+
 }
 
 object Matter extends Matter with Typography
