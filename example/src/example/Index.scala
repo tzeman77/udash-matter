@@ -10,7 +10,8 @@ object Index extends AbstractPage {
   val pages = Seq(
     Colors,
     Typography,
-    Buttons
+    Buttons,
+    Progress
   )
 
   override def tpl: Seq[Text.all.Modifier] = pages map(page =>
