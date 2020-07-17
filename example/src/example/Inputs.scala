@@ -2,8 +2,6 @@ package example
 
 import io.udash.css.CssText._
 import matter.Matter
-import scalatags.Text
-import scalatags.Text.TypedTag
 import scalatags.Text.all._
 
 object Inputs extends AbstractPage {

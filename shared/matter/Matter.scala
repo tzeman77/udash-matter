@@ -37,6 +37,8 @@ trait Matter {
   val link: CssStyleName = CssStyleName("matter-link")
 
   object progress extends Progress
+
+  object textfield extends TextField
 }
 
 object Matter extends Matter with Typography
