@@ -11,7 +11,8 @@ object Index extends AbstractPage {
     Colors,
     Typography,
     Buttons,
-    Progress
+    Progress,
+    Inputs
   )
 
   override def tpl: Seq[Text.all.Modifier] = pages map(page =>
