@@ -35,4 +35,4 @@ trait Matter {
   }
 }
 
-object Matter extends Matter
+object Matter extends Matter with Typography

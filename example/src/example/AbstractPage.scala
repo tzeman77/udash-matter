@@ -24,6 +24,8 @@ abstract class AbstractPage {
       headContributor,
 
     ),
-    body(margin:="5em", h1(pageTitle), tpl)
+    body(margin:="5em",
+      p(a(href:=Index.fileName, "Back to index")),
+      h1(pageTitle), tpl)
   )
 }

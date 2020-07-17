@@ -6,7 +6,8 @@ import scalatags.Text.all._
 object Index extends AbstractPage {
 
   val pages = Seq(
-    Colors
+    Colors,
+    Typography
   )
 
   override def tpl: Seq[Text.all.Modifier] = pages map(page =>
