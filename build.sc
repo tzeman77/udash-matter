@@ -108,6 +108,15 @@ object example extends Common {
       Seq(d.toString))
     PathRef(d)
   }
+
+  def distPath = T{ millSourcePath / 'www / 'example }
+
+  def dist() = T.command{
+    val d = distPath()
+    os.remove.all(d)
+    os.copy(run().path, d, replaceExisting = true, createFolders = true)
+    println(s"Example files copied to $d")
+  }
 }
 
 // vim: et ts=2 sw=2 syn=scala
