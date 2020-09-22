@@ -1,3 +1,18 @@
+/*
+ * Copyright 2020 Tomas Zeman <tomas@functionals.cz>
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 import mill._
 import mill.api.Loose
 import mill.define.{Command, Sources, Target}
@@ -33,13 +48,13 @@ trait Common extends CrossScalaModule with PublishModule {
 
   override def publishVersion: Target[String] = V.app
 
-  override def pomSettings = PomSettings(
+  override def pomSettings: T[PomSettings] = PomSettings(
     description = "Scala.js library facade for matter - Material Design Components in Pure CSS",
     organization = "cz.functionals",
-    url = "",
+    url = "https://fossil.functionals.cz/udash-matter",
     licenses = Seq(License.`Apache-2.0`),
     versionControl = VersionControl(developerConnection = Some(
-      "ssh://tzeman@hg.functionals.cz/repos/private/udash-matter.fossil")),
+      "ssh://tzeman@fossil.functionals.cz/repos/public/udash-matter.fossil")),
     developers = Seq(
       Developer("tzeman", "Tomas Zeman", "")
     )
@@ -111,7 +126,7 @@ object example extends Common {
 
   def distPath = T{ millSourcePath / 'www / 'example }
 
-  def dist() = T.command{
+  def dist(): Command[Unit] = T.command{
     val d = distPath()
     os.remove.all(d)
     os.copy(run().path, d, replaceExisting = true, createFolders = true)
